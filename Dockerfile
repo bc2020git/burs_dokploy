@@ -39,23 +39,7 @@ RUN composer install \
 
 
 # =========================
-# 2) Frontend / Vite build
-# =========================
-FROM node:22-alpine AS frontend
-
-WORKDIR /app
-
-COPY package.json package-lock.json* ./
-
-RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi
-
-COPY . .
-
-RUN npm run build
-
-
-# =========================
-# 3) Laravel runtime
+# 2) Laravel runtime
 # =========================
 FROM php:8.4-fpm-bookworm
 
@@ -87,7 +71,6 @@ RUN apt-get update && apt-get install -y \
 COPY . .
 
 COPY --from=composer_deps /app/vendor ./vendor
-COPY --from=frontend /app/public/build ./public/build
 
 COPY docker/nginx.conf /etc/nginx/sites-available/default
 COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
