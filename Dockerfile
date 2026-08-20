@@ -23,9 +23,9 @@ FROM node:22-alpine AS frontend
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json package-lock.json* ./
 
-RUN npm install
+RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi
 
 COPY . .
 
@@ -71,12 +71,14 @@ COPY docker/nginx.conf /etc/nginx/sites-available/default
 COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 
 RUN chmod +x /usr/local/bin/entrypoint.sh \
-    && mkdir -p storage/framework/cache \
-    storage/framework/sessions \
-    storage/framework/views \
-    storage/logs \
-    bootstrap/cache \
-    && chown -R www-data:www-data storage bootstrap/cache
+    && mkdir -p \
+        storage/framework/cache \
+        storage/framework/sessions \
+        storage/framework/views \
+        storage/logs \
+        bootstrap/cache \
+    && chown -R www-data:www-data storage bootstrap/cache \
+    && chmod -R 775 storage bootstrap/cache
 
 EXPOSE 80
 
