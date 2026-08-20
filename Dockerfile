@@ -1,9 +1,31 @@
 # =========================
 # 1) Composer dependencies
+# PHP 8.4 ile sabit
 # =========================
-FROM composer:2 AS composer
+FROM php:8.4-cli-bookworm AS composer_deps
 
 WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    libzip-dev \
+    libicu-dev \
+    libonig-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) \
+        gd \
+        zip \
+        intl \
+        mbstring \
+        bcmath \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 COPY composer.json composer.lock ./
 
@@ -64,7 +86,7 @@ RUN apt-get update && apt-get install -y \
 
 COPY . .
 
-COPY --from=composer /app/vendor ./vendor
+COPY --from=composer_deps /app/vendor ./vendor
 COPY --from=frontend /app/public/build ./public/build
 
 COPY docker/nginx.conf /etc/nginx/sites-available/default
