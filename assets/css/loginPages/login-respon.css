@@ -1,0 +1,187 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+.container-fluid {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    --bs-gutter-x: 0 !important;
+}
+.left-side {
+    flex: 1;
+    background-image: url('/assets/images/admin-bg.svg'); 
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+.right-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: white;
+}
+.form-container {
+    width: 100%;
+    max-width: 500px;
+}
+.form-group {
+    margin: 1.5rem 0;
+    position: relative;
+}
+.form-group label {
+    color: var(--Black-950, #1A1A1A);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    margin-bottom: 10px;
+}
+.form-group input {
+    border: none;
+    border-bottom: 1px solid #8c8c8c;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0 !important;
+}
+.form-group input:focus {
+    border-color: #007bff;
+    box-shadow: none;
+    outline: none;
+}
+form a{
+    text-decoration: none;
+}
+.header-logo {
+    position: absolute;
+    top: 1.5rem;
+    right: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+.header-logo span {
+    position: relative;
+    left: 35px;
+    top: 20px;
+}
+.logo {
+    width: 150px;
+}
+.title {
+    position: relative;
+    bottom: 4rem;
+    right: 72px;
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+.subtitle {
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+}
+.submit-btn {
+    display: block;
+    width: 100%;
+    max-width: 562px;
+    margin: 20px auto;
+    padding: 20px 56px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+}
+.submit-btn:hover {
+    background-color: #2563eb;
+}
+
+.iti {
+    width: 90%;
+}
+.iti__flag-container {
+    padding: 10px 0  !important;
+}
+.intl-tel-input .selected-flag {
+    margin-right: 10px;
+}
+
+.intl-tel-input input ::placeholder {
+    margin-left: 100px !important; 
+}
+.iti--separate-dial-code .iti__selected-flag {
+    background-color: transparent !important;
+}
+.iti__selected-dial-code {
+    display: none !important;
+}
+
+
+@media (max-width: 1200px) {
+    .title {
+        bottom: 1.5rem;
+        right: 60px;
+        font-size: 18px;
+    }
+    .subtitle {
+        font-size: 22px;
+    }
+}
+@media (max-width: 992px) {
+    .title {
+        bottom: 1rem;
+        right: 50px;
+        font-size: 16px;
+    }
+    .subtitle {
+        font-size: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .container-fluid {
+        flex-direction: column;
+    }
+    .left-side {
+        min-height: 50vh;
+    }
+    .right-side {
+        min-height: 50vh;
+    }
+    .title {
+        display: none;
+    }
+
+}
+@media (max-width: 576px) {
+    .form-container {
+        padding: 1rem;
+    }
+    .form-group {
+        margin: 2rem 0;
+    }
+    .submit-btn {
+        padding: 15px 30px;
+        font-size: 16px;
+    }
+}
+@media (max-width: 360px) {
+    .form-group label {
+        font-size: 14px;
+    }
+    .submit-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}

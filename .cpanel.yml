@@ -1,0 +1,9 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/devbursdernek360/public_html
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/rsync -av --delete \
+      --exclude='.git' \
+      --exclude='.cpanel.yml' \
+      --exclude='.env' \
+      ./ $DEPLOYPATH/

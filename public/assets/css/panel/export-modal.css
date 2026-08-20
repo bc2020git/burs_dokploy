@@ -1,0 +1,46 @@
+.export-modal .modal-dialog {
+    width: 100%;
+    max-width: min(32rem, calc(100vw - 2rem));
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.export-modal .modal-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.export-modal .modal-header {
+    min-width: 0;
+}
+
+.export-modal .modal-body {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* text-center ile uyum: metin ortada, progress tam genişlikte */
+.export-modal .modal-body > p {
+    width: 100%;
+}
+
+.export-modal .modal-body > .progress {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    align-self: stretch;
+    box-sizing: border-box;
+    /* Çubuk ve şerit animasyonu modal dışına taşmasın (sadece track) */
+    overflow: hidden;
+}
+
+.export-modal .modal-body .progress-bar {
+    max-width: 100%;
+    box-sizing: border-box;
+}
