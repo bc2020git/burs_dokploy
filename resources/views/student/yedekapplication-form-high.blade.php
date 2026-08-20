@@ -1,0 +1,191 @@
+@extends('layouts.student.master')
+@section('title')
+    Başvuru Formu
+@endsection
+@section('page-title')
+    Başvuru Formu
+@endsection
+@section('body')
+
+    @endsection
+    @section('content')
+        <main class="main-content px-3 py-4">
+            <div class=" mt-1">
+                <div id="application-form-high">
+                    <h2>Başvuru Formu</h2>
+                    <div class="main-content-manuel">
+                        <div class="step-container">
+                            <div class="step-item active" data-target="1">
+                                <div class="step-number">1</div>
+                                <div class="step-text">Genel Bilgileri</div>
+                            </div>
+                            <div class="step-item" data-target="2">
+                                <div class="step-number">2</div>
+                                <div class="step-text">Kişisel Bilgiler</div>
+                            </div>
+                            <div class="step-item" data-target="3">
+                                <div class="step-number">3</div>
+                                <div class="step-text">Eğitim Bilgileri</div>
+                            </div>
+                            <div class="step-item" data-target="4">
+                                <div class="step-number">4</div>
+                                <div class="step-text">Kalınan Yer Bilgileri</div>
+                            </div>
+                            <div class="step-item" data-target="5">
+                                <div class="step-number">5</div>
+                                <div class="step-text">Aile Adres Bilgileri</div>
+                            </div>
+                            <div class="step-item" data-target="6">
+                                <div class="step-number">6</div>
+                                <div class="step-text">Ebeveyn Bilgileri</div>
+                            </div>
+                            <div class="step-item" data-target="7">
+                                <div class="step-number">7</div>
+                                <div class="step-text">Kardeş Bilgileri</div>
+                            </div>
+                            <div class="step-item" data-target="8">
+                                <div class="step-number">8</div>
+                                <div class="step-text">Gelir Beyanı</div>
+                            </div>
+                            <div class="step-item" data-target="9">
+                                <div class="step-number">9</div>
+                                <div class="step-text">Diğer Burslar</div>
+                            </div>
+                            <div class="step-item" data-target="10">
+                                <div class="step-number">10</div>
+                                <div class="step-text">Engel Durumu</div>
+                            </div>
+                            <div class="step-item" data-target="11">
+                                <div class="step-number">11</div>
+                                <div class="step-text">Sosyal Bilgiler</div>
+                            </div>
+                            <div class="step-item" data-target="12">
+                                <div class="step-number">12</div>
+                                <div class="step-text">Hesap Bilgileri</div>
+                            </div>
+                            <div class="step-item" data-target="13">
+                                <div class="step-number">13</div>
+                                <div class="step-text">İş Bilgileri</div>
+                            </div>
+                            <div class="step-item" data-target="14">
+                                <div class="step-number">14</div>
+                                <div class="step-text">Belge Yükleme</div>
+                            </div>
+                        </div>
+                        <form>
+                            @include('student.layouts.general-infos')
+                            @include('student.layouts.personal-infos')
+                            <div class="step-content" id="step-3" data-content="3">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="h_school_type">Lise Tipi</label>
+                                        <select id="h_school_type" class="form-select">
+                                            <option selected disabled>Seçiniz</option>
+                                            <option @if(isset($aday->educinfo->h_school_type) && $aday->educinfo->h_school_type == 'Devlet Lisesi' ) selected @endif value="Devlet Lisesi">Devlet Lisesi</option>
+                                            <option @if(isset($aday->educinfo->h_school_type) && $aday->educinfo->h_school_type == 'Özel Lise (Tam burslu)' ) selected @endif value="Özel Lise (Tam burslu)">Özel Lise (Tam burslu)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="h_school_turu">Lise Türü</label>
+                                        <select id="h_school_turu" class="form-select">
+                                            <option @if(isset($aday->educinfo->h_school_turu) && $aday->educinfo->h_school_turu == 'Fen Lisesi' ) selected @endif  value="Fen Lisesi">Fen Lisesi</option>
+                                            <option @if(isset($aday->educinfo->h_school_turu) && $aday->educinfo->h_school_turu == 'Anadolu Lisesi' ) selected @endif value="Anadolu Lisesi">Anadolu Lisesi</option>
+                                            <option @if(isset($aday->educinfo->h_school_turu) && $aday->educinfo->h_school_turu == 'Anadolu Meslek Lisesi' ) selected @endif value="Anadolu Meslek Lisesi">Anadolu Meslek Lisesi</option>
+                                            <option @if(isset($aday->educinfo->h_school_turu) && $aday->educinfo->h_school_turu == 'Sosyal Bilimler Lisesi' ) selected @endif value="Sosyal Bilimler Lisesi">Sosyal Bilimler Lisesi</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="h_school_name">Okul Adı</label>
+                                        <input type="text" class="form-control" id="h_school_name"
+                                               placeholder="Okul adınızı giriniz...">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="h_school_city">Okulun Bulunduğu Şehir</label>
+                                        <select onchange="getDistricts(this,'h_school_district')" id="h_school_city" class="form-select">
+                                            @foreach($cities as $city)
+                                                <option data-id="{{ $city->id }}"  @if(isset($aday->educinfo->h_school_city ) && $aday->educinfo->m_school_city == $city->isim) selected @endif value="{{$city->isim}}">{{$city->isim}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="h_school_district">Okulun Bulunduğu İlçe</label>
+                                        <select id="h_school_district" class="form-select">
+                                            <option @if(isset($aday->educinfo->h_school_district)) value="{{$aday->educinfo->h_school_district}}">{{$aday->educinfo->h_school_district}} @endif </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="studentNumber">Öğrenci Numarası</label>
+                                        <input value=" @if(isset($aday->educinfo->student_number)) {{$aday->educinfo->student_number}}@endif"  type="text" class="form-control" id="studentNumber"
+                                               placeholder="Öğrenci numaranızı giriniz...">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="class">Sınıfınız</label>
+                                        <select id="class" class="form-select">
+                                            <option selected disabled value="">Seçiniz...</option>
+                                            <option @selected(isset($aday->educinfo->class) && $aday->educinfo->class == '9')  value="9">9</option>
+                                            <option @selected(isset($aday->educinfo->class) && $aday->educinfo->class == '10')  value="10">10</option>
+                                            <option @selected(isset($aday->educinfo->class) && $aday->educinfo->class == '11')  value="11">11</option>
+                                            <option @selected(isset($aday->educinfo->class) && $aday->educinfo->class == '12')  value="12">12</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="transferred">Nakil Yaptı mı?</label>
+                                        <select id="transferred" class="form-select">
+                                            <option value="">Seçiniz...</option>
+                                            <option  @selected(isset($aday->educinfo->is_transfered) && $aday->educinfo->is_transfered == 'Evet') value="Evet">Evet</option>
+                                            <option  @selected(isset($aday->educinfo->is_transfered) && $aday->educinfo->is_transfered == 'Hayır') value="Hayır">Hayır</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="averageGrade">Not Ortalaması</label>
+                                        <input @if(isset($aday->educinfo->grade_avg)) value="{{$aday->educinfo->grade_avg}}" @endif  type="text" class="form-control" id="averageGrade"
+                                               placeholder="Not ortalamanızı giriniz...">
+                                    </div>
+                                </div>
+                            </div>
+                            @include('student.layouts.housing-infos')
+                            @include('student.layouts.familyAddress-infos')
+                            @include('student.layouts.parent-infos')
+                            @include('student.layouts.sibling-infos')
+                            <div class="step-content" id="step-8" data-content="8">
+                                    @include('student.layouts.income-infos')
+                            </div>
+                            @include('student.layouts.otherscholarships-infos')
+                            @include('student.layouts.obstacled-infos')
+                            @include('student.layouts.social-infos')
+                            @include('student.layouts.bank-infos')
+                            @include('student.layouts.job-infos')
+                            @include('student.layouts.documents-infos')
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="transfer-modal-footer d-flex justify-content-end g-3">
+            <button type="button" class="btn cancel-button" id="prevStep">Vazgeç</button>
+            <button style="display: none;" type="button" class="btn btn-outline-primary next-button"
+                    id="prevButton">Önceki</button>
+            <button type="button" class="btn btn-primary next-button" id="nextStep">Sonraki</button>
+            <button style="display: none;" type="button" class="btn btn-primary next-button"
+                    id="completeButton">Tamamla</button>
+        </div>
+
+
+        <!--Modal Alanı-->
+        @include('student.layouts.modals')
+    @endsection
+    @section('scripts')
+        <!-- App js -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+        <script src="https://datatables-cdn.com/1.11.5/js/jquery.dataTables.min.js"></script>
+        <script src="https://datatables-cdn.com/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+
+
+        <script src="../../assets/js/components/dashboard-student.js"></script>
+        @include('student.layouts.scriptF')
+                @include('includes.js.sidebar')
+
+@endsection

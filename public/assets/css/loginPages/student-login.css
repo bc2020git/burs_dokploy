@@ -1,0 +1,881 @@
+:root {
+    /* Blue Colors */
+    --blue-900: #0E2087;
+    --blue-800: #0052CC;
+    --blue-700: #0065FF;
+    --blue-600: #2684FF;
+    --blue-500: #3851DD;
+    --blue-400: #5067E9;
+    --Blue-300: #0065FF;
+    --primary: #007bff;
+
+    /* Red Colors */
+    --red-400: #BF2600;
+    --red-300: #1328A0;
+    --red-200: #1B32B8;
+    --red-100: #2740CD;
+    --red-0: #3851DD;
+    --danger: #dc3545;
+
+    /* Green Colors */
+    --green-400: #006644;
+    --green-300: #00875A;
+    --green-200: #36B37E;
+    --green-100: #ABF5D1;
+    --green-0: #E3FCEF;
+    --success: #28a745;
+
+    /* Yellow Colors */
+    --yellow-400: #FF8B00;
+    --yellow-300: #FFAB00;
+    --yellow-200: #FFC400;
+    --yellow-100: #FFE380;
+    --yellow-0: #FFFAE6;
+
+    /* Purple Colors */
+    --purple-400: #403294;
+    --purple-300: #6554C0;
+    --purple-200: #8777D9;
+    --purple-100: #C0B6F2;
+    --purple-0: #EAE6FF;
+
+    /* Neutral Colors */
+    --black-950: #1A1A1A;
+    --black-900: #1C1C1C;
+    --black-800: #252525;
+    --black-700: #333333;
+    --black-600: #636363;
+    --black-500: #8C8C8C;
+    --black-400: #AFAFAF;
+    --black-300: #CCCCCC;
+    --black-200: #E2E2E2;
+    --black-100: #F2F2F2;
+    --black-50: #FCFCFC;
+    --white: #FFFFFF;
+    --secondary: #6c757d;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.wrapper {
+    background-color: #ececec;
+    padding: 0;
+    height: 100%;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.row {
+    width: 100%;
+    height: 100%;
+}
+
+.side-image {
+    background-image: url(../../images/admin-bg.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    position: relative;
+}
+
+.login-circle .btn {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.login-circle .btn img {
+    display: block;
+    width: 36px;
+    max-width: 100%;
+    height: auto;
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+}
+
+.input-box {
+    width: 520px;
+    height: 657px;
+    padding: 84px 40px 5px 40px;
+    box-sizing: border-box;
+}
+
+.input-box header {
+    color: var(--Black-950, #1A1A1A);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    text-align: start;
+    margin-bottom: 72px;
+}
+
+.input-box .logo img {
+    width: 135px;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}
+
+.input-box .logo span {
+    position: absolute;
+    top: 60px;
+    right: 32px;
+    display: block;
+    margin-top: 16px;
+    color: var(--Black-950, #1A1A1A);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.input-field a {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 10px;
+    text-decoration: none;
+}
+
+.input {
+    height: 45px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    font-size: 18px;
+    margin-bottom: 32px;
+    margin-top: 48px;
+    color: #40414a;
+}
+
+.input-box .input-field label {
+    margin-top: 24px;
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    font-size: 18px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-field .input:focus~label {
+    top: -10px;
+    font-size: 16px;
+}
+
+.input-field .input:valid~label {
+    top: -10px;
+    font-size: 13px;
+    color: #5d5076;
+}
+
+.input-field .input:focus,
+.input-field .input:valid {
+    border-bottom: 1px solid var(--blue-700);
+}
+
+.submit {
+    border: none;
+    outline: none;
+    height: 56px;
+    font-size: 18px;
+    background: var(--Blue-300);
+    color: var(--white);
+    border-radius: 5px;
+    transition: .4s;
+    margin-top: 20px;
+}
+
+.submit:hover {
+    background: var(--blue-800);
+    color: white;
+}
+
+.signin {
+    text-align: center;
+    font-size: small;
+    margin-top: 25px;
+}
+
+.form-checkk {
+    font-size: 12px;
+    margin-left: 12px;
+    font-weight: 600;
+}
+
+.forgot a {
+    font-size: 12px;
+    color: var(--black-700);
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-login btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.veya {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.veya::before,
+.veya::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--black-200);
+    margin: 0 10px;
+}
+
+.veya span {
+    display: inline-block;
+    padding: 0 10px;
+    color: #000;
+}
+
+@media only screen and (min-width: 1024px) {
+    .input-box {
+        width: 600px;
+        height: 500px;
+        padding: 0px 40px 5px 40px;
+    }
+
+    .input-box header {
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+
+    .input-box .logo img {
+        width: 150px;
+        top: 20px;
+        right: 20px;
+    }
+
+    .input-box .logo span {
+        top: 65px;
+        right: 30px;
+        font-size: 18px;
+    }
+
+    .input {
+        font-size: 20px;
+        margin-bottom: 40px;
+        margin-top: 50px;
+    }
+
+    .input-box .input-field label {
+        font-size: 20px;
+        top: -10px;
+    }
+
+    .input-field .input:focus~label,
+    .input-field .input:valid~label {
+        top: -10px;
+        font-size: 18px;
+    }
+
+    .submit {
+        font-size: 20px;
+        height: 60px;
+    }
+
+    .signin {
+        font-size: medium;
+        margin-top: 30px;
+    }
+
+    .social-login {
+        margin-top: 30px;
+    }
+
+    .social-login btn {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .side-image {
+        display: none;
+    }
+
+    .input-box {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .input-box header {
+        font-size: 20px;
+        margin-bottom: 40px;
+    }
+
+    .input-box .logo img {
+        width: 100px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .input-box .logo span {
+        top: 40px;
+        right: 12px;
+        font-size: 14px;
+    }
+
+    .input-field {
+        padding: 0;
+    }
+
+    .input {
+        font-size: 16px;
+        margin-bottom: 20px;
+        margin-top: 24px;
+    }
+
+    .input-box .input-field label {
+        font-size: 16px;
+        top: -12px;
+    }
+
+    .input-field .input:focus~label,
+    .input-field .input:valid~label {
+        top: -10px;
+        font-size: 14px;
+    }
+
+    .submit {
+        font-size: 16px;
+        height: 48px;
+        margin-top: 16px;
+    }
+
+    .signin {
+        font-size: 12px;
+        margin-top: 20px;
+    }
+
+    .social-login {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .social-login btn {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .social-login button {
+        margin: 0 5px;
+        flex: 1;
+    }
+
+    /*otp*/
+
+    .otp-inputs {
+        gap: 20px;
+    }
+
+    .otp-input {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+}
+
+/*otp*/
+
+.turn-back a {
+    margin-bottom: 8px;
+    text-decoration: none;
+}
+
+.turn-back span {
+    color: var(--Black-950, #1A1A1A);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.input-box .otp-verify header {
+    color: var(--Black-950, #1A1A1A);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    text-align: start;
+    margin: 32px 0 32px 0;
+}
+
+.input-field-verify .chat-private-fill {
+    padding: 28px 0;
+}
+
+.input-field-verify .message p:first-child {
+    color: var(--Black-950, #1A1A1A);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    /* 27px */
+}
+
+.otp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.otp-inputs {
+    display: flex;
+    align-items: flex-start;
+    gap: 44px;
+    align-self: stretch;
+}
+
+.otp-input {
+    width: 64px;
+    height: 64px;
+    text-align: center;
+    font-size: 24px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin: 24px 0px;
+}
+
+.otp-input:focus {
+    border-color: var(--blue-700);
+    box-shadow: 0 0 5px var(--Blue-300);
+}
+
+.input-field-verify {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 10px;
+}
+
+.input {
+    height: 45px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    font-size: 18px;
+    margin-bottom: 32px;
+    margin-top: 48px;
+    color: #40414a;
+}
+
+.input-box .input-field-verify label {
+    margin-top: 24px;
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    font-size: 18px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-field-verify .input:focus~label {
+    top: -10px;
+    font-size: 16px;
+}
+
+.input-field-verify .input:valid~label {
+    top: -10px;
+    font-size: 13px;
+    color: #5d5076;
+}
+
+.input-field-verify .input:focus,
+.input-field-verify .input:valid {
+    border-bottom: 1px solid var(--black-200);
+}
+
+.input-field-verify span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    color: var(--Black-950, #1A1A1A);
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+
+}
+
+.input-field-verify span a {
+    color: var(--black-950);
+}
+
+.submit-verify {
+    border: none;
+    outline: none;
+    height: 56px;
+    width: 450px;
+    font-size: 18px;
+    background: var(--black-200);
+    color: var(--black-950);
+    border-radius: 5px;
+    transition: .4s;
+    margin: 20px 0 10px 0;
+}
+
+.submit-verify:hover {
+    background: var(--black-500);
+    color: white;
+}
+
+/*password-reset.html*/
+.input-field-verify .message-fill {
+    padding: 28px 0;
+}
+
+.email-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.email-container span {
+    color: var(--Black-700, #333);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    position: absolute;
+    top: 20px;
+}
+
+.email-container .email-input {
+    height: 45px;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 36px;
+}
+
+.email-container .email-input:focus {
+    border-color: var(--blue-700);
+    box-shadow: 0 0 5px rgba(0, 101, 255, 0.5);
+}
+
+/*send-password-reset.html*/
+
+.input-field-verify .mail-unread-fill {
+    padding: 28px 0;
+}
+
+.input-field-unread {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 40px 10px;
+}
+
+.input-field-unread a {
+    color: var(--black-900);
+}
+
+/*setting-new-password.html*/
+
+.input-field-verify .lock-unlock-fill {
+    padding: 28px 0;
+}
+
+.password-reset-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+#form-label-password {
+    color: var(--Black-700, #333);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+}
+
+.password-input-group {
+    position: relative;
+    display: flex;
+    align-items: start;
+    margin-bottom: 20px;
+}
+
+.password-input {
+    width: 100%;
+    height: 45px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+}
+
+.toggle-password img {
+    width: 20px;
+    height: 20px;
+}
+
+/*forgot3.1.html*/
+
+.input-field-verify .validation {
+    padding: 28px 0;
+}
+
+
+.password-reset-container p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.form-label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.password-input-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.password-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.password-input {
+    width: 100%;
+    height: 45px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.password-input:invalid {
+    border-color: #dc3545;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+}
+
+.toggle-password img {
+    width: 20px;
+    height: 20px;
+}
+
+.error-message {
+    font-size: 14px;
+    color: #dc3545;
+    margin-top: 5px;
+    display: none;
+}
+
+/*password-changed.html*/
+
+.input-field-verify .lock-password-fill {
+    padding: 56px 0;
+}
+
+.input-field-verify .message-password {
+    color: var(--Black-950, #1A1A1A);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    padding: 60px 0px;
+}
+
+/*student education type*/
+
+
+
+.navbar {
+    background: var(--neutral-light-n-0, #FFF);
+    box-shadow: 0px 1px 1px 0px rgba(9, 30, 66, 0.25), 0px 0px 1px 0px rgba(9, 30, 66, 0.31);
+}
+
+.background-image {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('/assets/images/admin-bg.svg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+#ortaogretim-btn,
+#yuksekogretim-btn {
+    border-radius: 4px;
+    border: 0.5px solid var(--Blue-500, #0E2087);
+    background: var(--Black-100, #F2F2F2);
+    display: flex;
+    width: 300px;
+    height: 72px;
+    padding: 8px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    color: var(--Logo-Blue, #4069E5);
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    /* 36px */
+}
+
+#ılkokul-btn,
+#ortaokul-btn,
+#lise-btn,
+#onlısans-btn,
+#lısans-btn,
+#yuksek-btn,
+#doktora-btn {
+    display: flex;
+    width: 300px;
+    height: 75px;
+    padding: 8px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+    border: 0.5px solid #FFF;
+    background: var(--Logo-Blue, #4069E5);
+    color: var(--Black-White, #FFF);
+    text-align: center;
+
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    /* 36px */
+
+}
+
+.navbar-custom {
+    color: #0E2087;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.education-type {
+    display: flex;
+    flex-direction: column;
+}
+
+.education-type .btn-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.education-type h3 {
+    padding: 32px 16px;
+    margin: 48px 32px 72px 32px;
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    /* 36px */
+}
